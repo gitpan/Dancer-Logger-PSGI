@@ -2,7 +2,7 @@ NAME
     Dancer::Logger::PSGI - PSGI Log handler for Dancer
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
     In your Dancer's configuration file:
@@ -13,9 +13,14 @@ SYNOPSIS
 
         warning "this is a warning"
 
-    In your app.psgi
+    Then, in your app.psgi
 
         $app = builder { enable "ConsoleLogger"; $app; }
+
+    or in your environment file:
+
+        - plack_middlewares:
+          - ConsoleLogger
 
     With Plack::Middleware::ConsoleLogger, all your log will be send to the
     javascript console of your browser.

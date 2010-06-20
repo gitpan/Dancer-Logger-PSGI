@@ -13,7 +13,6 @@ my %WriteMakefileArgs = (
   'AUTHOR' => 'franck cuny <franck@lumberjaph.net>',
   'BUILD_REQUIRES' => {
     'Dancer' => '0',
-    'Dancer::Config' => '0',
     'Plack::Builder' => '0',
     'Plack::Loader' => '0',
     'Test::More' => '0',
@@ -30,7 +29,7 @@ my %WriteMakefileArgs = (
     'Dancer::Logger::Abstract' => '0',
     'Dancer::SharedData' => '0'
   },
-  'VERSION' => '0.01',
+  'VERSION' => '0.02',
   'test' => {
     'TESTS' => 't/*.t'
   }
@@ -39,10 +38,10 @@ my %WriteMakefileArgs = (
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
-  my $pp = $WriteMakefileArgs{PREREQ_PM}; 
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
   for my $mod ( keys %$br ) {
     if ( exists $pp->{$mod} ) {
-      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod}; 
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
     }
     else {
       $pp->{$mod} = $br->{$mod};

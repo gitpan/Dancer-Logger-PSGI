@@ -14,10 +14,16 @@ sub init {}
 
 sub _log {
     my ( $self, $level, $message ) = @_;
+    my $full_message = $self->format_message($level => $message);
+    chomp $full_message;
+
     my $request = Dancer::SharedData->request;
-    if ( $request->{env}->{'psgix.logger'} ) {
-        $request->{env}->{'psgix.logger'}
-            ->( { level => $level, message => $message } );
+    if ($request->{env}->{'psgix.logger'}) {
+        $request->{env}->{'psgix.logger'}->(
+            {   level   => $level,
+                message => $full_message,
+            }
+        );
     }
 }
 
@@ -33,7 +39,7 @@ Dancer::Logger::PSGI - PSGI Log handler for Dancer
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -45,9 +51,14 @@ In your application
 
     warning "this is a warning"
 
-In your app.psgi
+Then, in your app.psgi
 
     $app = builder { enable "ConsoleLogger"; $app; }
+
+or in your environment file:
+
+    - plack_middlewares:
+      - ConsoleLogger
 
 With L<Plack::Middleware::ConsoleLogger>, all your log will be send to the javascript console of your browser.
 

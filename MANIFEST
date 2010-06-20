@@ -9,6 +9,7 @@ dist.ini
 lib/Dancer/Logger/PSGI.pm
 t/00_compile.t
 t/01_basic.t
+t/logs/development.log
 t/release-eol.t
 t/release-no-tabs.t
 t/release-pod-coverage.t
