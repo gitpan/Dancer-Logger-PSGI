@@ -1,11 +1,12 @@
 package Dancer::Logger::PSGI;
+BEGIN {
+  $Dancer::Logger::PSGI::VERSION = '0.03';
+}
 
 # ABSTRACT: PSGI Log handler for Dancer
 
 use strict;
 use warnings;
-
-our $VERSION = '0.01';
 
 use Dancer::SharedData;
 use base 'Dancer::Logger::Abstract';
@@ -39,26 +40,20 @@ Dancer::Logger::PSGI - PSGI Log handler for Dancer
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
-In your Dancer's configuration file:
+In your Dancer's environment file:
 
     logger: PSGI
+    - plack_middlewares:
+      -
+        - ConsoleLogger
 
 In your application
 
     warning "this is a warning"
-
-Then, in your app.psgi
-
-    $app = builder { enable "ConsoleLogger"; $app; }
-
-or in your environment file:
-
-    - plack_middlewares:
-      - ConsoleLogger
 
 With L<Plack::Middleware::ConsoleLogger>, all your log will be send to the javascript console of your browser.
 
@@ -68,7 +63,7 @@ This class is an interface between your Dancer's application and B<psgix.logger>
 
 =head1 AUTHOR
 
-  franck cuny <franck@lumberjaph.net>
+franck cuny <franck@lumberjaph.net>
 
 =head1 COPYRIGHT AND LICENSE
 

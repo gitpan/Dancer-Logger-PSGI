@@ -26,10 +26,10 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'Dancer::Logger::PSGI',
   'PREREQ_PM' => {
-    'Dancer::Logger::Abstract' => '0',
-    'Dancer::SharedData' => '0'
+    'Dancer' => '1.3000',
+    'Plack::Middleware::ConsoleLogger' => '0.02'
   },
-  'VERSION' => '0.02',
+  'VERSION' => '0.03',
   'test' => {
     'TESTS' => 't/*.t'
   }
