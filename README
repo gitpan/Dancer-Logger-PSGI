@@ -2,22 +2,28 @@ NAME
     Dancer::Logger::PSGI - PSGI Log handler for Dancer
 
 VERSION
-    version 0.03
+    version 0.020_001
 
 SYNOPSIS
-    In your Dancer's environment file:
+    In your Dancer's configuration file:
 
         logger: PSGI
-        - plack_middlewares:
-          -
-            - ConsoleLogger
 
     In your application
 
         warning "this is a warning"
 
+    Then, in your app.psgi
+
+        $app = builder { enable "ConsoleLogger"; $app; }
+
+    or in your environment file:
+
+        - plack_middlewares:
+          - ConsoleLogger
+
     With Plack::Middleware::ConsoleLogger, all your log will be send to the
-    javascript console of your browser.
+    JavaScript console of your browser.
 
 DESCRIPTION
     This class is an interface between your Dancer's application and
@@ -29,7 +35,7 @@ AUTHOR
     franck cuny <franck@lumberjaph.net>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2010 by franck cuny.
+    This software is copyright (c) 2011 by franck cuny.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

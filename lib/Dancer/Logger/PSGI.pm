@@ -1,15 +1,12 @@
 package Dancer::Logger::PSGI;
-BEGIN {
-  $Dancer::Logger::PSGI::VERSION = '0.03';
-}
-
-# ABSTRACT: PSGI Log handler for Dancer
 
 use strict;
 use warnings;
-
 use Dancer::SharedData;
-use base 'Dancer::Logger::Abstract';
+use base "Dancer::Logger::Abstract";
+
+our $VERSION = '0.020_001'; # VERSION
+# ABSTRACT: PSGI Log handler for Dancer
 
 sub init {}
 
@@ -19,13 +16,14 @@ sub _log {
     chomp $full_message;
 
     my $request = Dancer::SharedData->request;
-    if ($request->{env}->{'psgix.logger'}) {
-        $request->{env}->{'psgix.logger'}->(
+    if ($request->{env}{"psgix.logger"}) {
+        $request->{env}{"psgix.logger"}->(
             {   level   => $level,
                 message => $full_message,
             }
         );
     }
+    return;
 }
 
 1;
@@ -40,22 +38,28 @@ Dancer::Logger::PSGI - PSGI Log handler for Dancer
 
 =head1 VERSION
 
-version 0.03
+version 0.020_001
 
 =head1 SYNOPSIS
 
-In your Dancer's environment file:
+In your Dancer's configuration file:
 
     logger: PSGI
-    - plack_middlewares:
-      -
-        - ConsoleLogger
 
 In your application
 
     warning "this is a warning"
 
-With L<Plack::Middleware::ConsoleLogger>, all your log will be send to the javascript console of your browser.
+Then, in your app.psgi
+
+    $app = builder { enable "ConsoleLogger"; $app; }
+
+or in your environment file:
+
+    - plack_middlewares:
+      - ConsoleLogger
+
+With L<Plack::Middleware::ConsoleLogger>, all your log will be send to the JavaScript console of your browser.
 
 =head1 DESCRIPTION
 
@@ -67,7 +71,7 @@ franck cuny <franck@lumberjaph.net>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by franck cuny.
+This software is copyright (c) 2011 by franck cuny.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
