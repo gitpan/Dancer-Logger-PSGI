@@ -49,7 +49,7 @@
          }
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/franckcuny/dancer-logger-psgi/issues"
@@ -61,6 +61,6 @@
          "web" : "https://github.com/franckcuny/dancer-logger-psgi"
       }
    },
-   "version" : "0.020_001"
+   "version" : "0.04"
 }
 

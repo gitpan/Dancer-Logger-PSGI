@@ -27,7 +27,7 @@ my %module_build_args = (
     "franck cuny <franck\@lumberjaph.net>"
   ],
   "dist_name" => "Dancer-Logger-PSGI",
-  "dist_version" => "0.020_001",
+  "dist_version" => "0.04",
   "license" => "perl",
   "module_name" => "Dancer::Logger::PSGI",
   "recommends" => {},

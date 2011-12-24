@@ -34,4 +34,4 @@ resources:
   bugtracker: https://github.com/franckcuny/dancer-logger-psgi/issues
   homepage: https://metacpan.org/release/Dancer-Logger-PSGI
   repository: git://github.com/franckcuny/dancer-logger-psgi.git
-version: 0.020_001
+version: 0.04
