@@ -1,9 +1,3 @@
-NAME
-    Dancer::Logger::PSGI - PSGI Log handler for Dancer
-
-VERSION
-    version 0.04
-
 SYNOPSIS
     In your Dancer's environment file:
 
@@ -30,15 +24,6 @@ AUTHOR
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2010 by franck cuny.
-
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
-
-AUTHOR
-    franck cuny <franck@lumberjaph.net>
-
-COPYRIGHT AND LICENSE
-    This software is copyright (c) 2011 by franck cuny.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
