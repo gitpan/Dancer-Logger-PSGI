@@ -1,9 +1,9 @@
 ---
 abstract: 'PSGI Log handler for Dancer'
 author:
-  - 'franck cuny <franck@lumberjaph.net>'
+  - 'Franck Cuny <franck@lumberjaph.net>'
 build_requires:
-  Dancer: 0
+  Dancer: 1.3059
   File::Spec: 0
   IO::Handle: 0
   IPC::Open3: 0
@@ -22,12 +22,10 @@ meta-spec:
   version: 1.4
 name: Dancer-Logger-PSGI
 requires:
-  Dancer::Logger::Abstract: 0
-  Dancer::SharedData: 0
-  parent: 0
+  Dancer: 1.3059
   perl: v5.10.0
 resources:
   bugtracker: https://github.com/rsimoes/dancer-logger-psgi/issues
   homepage: https://metacpan.org/release/Dancer-Logger-PSGI
   repository: git://github.com/rsimoes/dancer-logger-psgi.git
-version: v1.0.0
+version: v1.0.1

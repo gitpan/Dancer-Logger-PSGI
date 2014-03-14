@@ -15,23 +15,21 @@ my %module_build_args = (
   },
   "dist_abstract" => "PSGI Log handler for Dancer",
   "dist_author" => [
-    "franck cuny <franck\@lumberjaph.net>"
+    "Franck Cuny <franck\@lumberjaph.net>"
   ],
   "dist_name" => "Dancer-Logger-PSGI",
-  "dist_version" => "v1.0.0",
+  "dist_version" => "v1.0.1",
   "license" => "mit",
   "module_name" => "Dancer::Logger::PSGI",
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
-    "Dancer::Logger::Abstract" => 0,
-    "Dancer::SharedData" => 0,
-    "parent" => 0,
+    "Dancer" => "1.3059",
     "perl" => "v5.10.0"
   },
   "script_files" => [],
   "test_requires" => {
-    "Dancer" => 0,
+    "Dancer" => "1.3059",
     "File::Spec" => 0,
     "IO::Handle" => 0,
     "IPC::Open3" => 0,
@@ -44,7 +42,7 @@ my %module_build_args = (
 
 
 my %fallback_build_requires = (
-  "Dancer" => 0,
+  "Dancer" => "1.3059",
   "File::Spec" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,

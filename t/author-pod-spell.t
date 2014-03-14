@@ -23,6 +23,8 @@ cuny
 psgi
 psgix
 JavaScript
+Franck
+Cuny
 Richard
 Simões
 lib
